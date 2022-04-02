@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+ <!-- dependencies should be defined here Test
+-->
+<!-- bean defintion -->
+<bean id="add" class="org.man.calculator.Adittion"></bean>
+<bean id="sub" class="org.man.calculator.Subtraction"></bean>
+<bean id="cal" class="org.man.calculator.Calculator">
+<property name="adittion" ref="add"></property>
+<property name="subtraction" ref="sub"></property>
+
+</bean>
+</beans>
