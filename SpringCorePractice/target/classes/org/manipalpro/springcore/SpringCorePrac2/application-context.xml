@@ -1,0 +1,11 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+<bean id="venom" class="org.manipalpro.springcore.SpringCorePrac2.Test"></bean>
+<bean id="cal" class="org.manipalpro.springcore.SpringCorePrac2.Calculator">
+<property name="test" ref="venom"/>
+</bean>
+
+</beans>
