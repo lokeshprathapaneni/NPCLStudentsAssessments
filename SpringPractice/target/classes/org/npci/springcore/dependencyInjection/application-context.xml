@@ -20,6 +20,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	</bean> -->
 	
+	
 	<bean id = "student" class="org.npci.springcore.dependencyInjection.Student">
 	
 		<property name="x" value="10"></property>
