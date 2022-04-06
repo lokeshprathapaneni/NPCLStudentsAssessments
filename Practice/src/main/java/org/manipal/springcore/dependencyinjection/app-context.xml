@@ -1,0 +1,15 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+  <bean id="add" class="org.manipal.springcore.dependencyinjection.Addition">
+  </bean>
+   <bean id="sub" class="org.manipal.springcore.dependencyinjection.Subraction">
+  </bean>
+   <bean id="cal" class="org.manipal.springcore.dependencyinjection.Calculator">
+  <property name="adds" ref="add"></property>
+  <property name="subs" ref="sub"></property>
+  </bean>
+  
+</beans>

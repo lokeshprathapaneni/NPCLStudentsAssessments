@@ -1,0 +1,5 @@
+package org.manipal.springcore.dependencyinjection;
+
+public class Calculator {
+
+}

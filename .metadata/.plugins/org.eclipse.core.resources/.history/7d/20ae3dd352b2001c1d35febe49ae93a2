@@ -1,0 +1,10 @@
+package org.maipalpro.dependency;
+
+public class Animal {
+	public void animalHobbies() {
+
+		BeanFactory factory = new ClassPathX
+				
+	}
+
+}

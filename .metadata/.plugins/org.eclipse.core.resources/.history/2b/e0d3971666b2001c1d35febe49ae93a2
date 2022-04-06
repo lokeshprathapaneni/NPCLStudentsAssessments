@@ -1,0 +1,24 @@
+package org.manipalpro.springcore.Springcoreprac;
+
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class SuzukiEngine {
+	public void engineFunctionStart() {
+		//Engine engine =new Engine();
+	//	engine.startEngine();
+
+		BeanFactory factory = new ClassPathXmlApplicationContext("\\org\\manipalpro\\springcore\\Springcoreprac\\application-context2.xm");
+		Engine bean = (Engine)factory.getBean("x");
+		bean.startEngine();
+	}
+    public void engineFunctionStop() {
+   // 	Engine engine = new Engine();
+    //	engine.stopEngine();
+		BeanFactory factory = new ClassPathXmlApplicationContext("\\org\\manipalpro\\springcore\\Springcoreprac\\application-context2.xm");
+		Engine bean = (Engine)factory.getBean("x");
+		bean.stopEngine();
+		
+	     }
+
+}

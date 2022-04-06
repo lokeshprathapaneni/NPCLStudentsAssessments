@@ -1,0 +1,18 @@
+package org.manipalpro.springcore.Springcoreprac;
+
+import javax.print.attribute.standard.MediaSize.Engineering;
+
+public class car {
+	Engine engine;
+	
+car(Engine.engine){
+	
+}
+
+	public void move() {
+		System.out.println("getting Engine");
+		
+		
+		
+	}
+}

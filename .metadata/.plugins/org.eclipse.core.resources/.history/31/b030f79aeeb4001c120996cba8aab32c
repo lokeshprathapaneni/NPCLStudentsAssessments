@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+
+<!-- dependencies should be defined here Test
+-->
+
+<!-- bean definition -->
+<!-- bean id="t" class="org.manipalpro.springcore.Springcoreprac.Test"></bean> -->
+
+
+
+
+<!--bean id="car" class="org.manipalpro.springcore.Springcoreprac.car">
+<constructor-arg ref="engine"></constructor-arg>
+</bean>
+
+ <bean id ="engine" class="org.manipalpro.springcore.Springcoreprac.Engine"></bean>
+   -->
+   
+   <bean id ="student" class="org.manipalpro.springcore.Springcoreprac.Student">
+   <property name="x" value="20"></property>
+   <property name="x" value="60"></property>
+   </bean>
+   
+
+</beans>
