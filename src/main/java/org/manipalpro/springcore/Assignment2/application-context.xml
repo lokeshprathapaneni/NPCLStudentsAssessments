@@ -3,10 +3,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	
+	
+	<bean id="dept" class="org.manipalpro.springcore.Assignment2.Department"></bean>
 
-	<!-- dependencies should be defined here Test
- -->
- 
-<!--  bean defintion -->
- <bean id="t" class="org.manipalpro.springcore.prac.Test"></bean>
+<bean id="employee" class="org.manipalpro.springcore.Assignment2.EMployee" autowire="constructor"></bean>
 </beans>
