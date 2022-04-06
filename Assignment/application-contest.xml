@@ -1,0 +1,34 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+
+<!-- <bean id="t" class="org.manipalpro.springcore.Assignment.Department"></bean> -->
+
+
+<!-- <bean id="employee" class="org.manipalpro.springcore.Assignment.Employee">
+<property name="department" ref="t"/>
+</bean> -->
+
+
+<!-- <bean id="employee1" class="org.manipalpro.springcore.Assignment.Employee">
+<constructor-arg ref="t"></constructor-arg>
+</bean> -->
+
+
+
+
+<!-- <bean id="department" class="org.manipalpro.springcore.Assignment.Department"></bean>
+<bean id="employee" class="org.manipalpro.springcore.Assignment.Employee" autowire="byName"></bean>
+ -->
+ 
+ <!-- <bean id="t" class="org.manipalpro.springcore.Assignment.Department"></bean>
+<bean id="employee" class="org.manipalpro.springcore.Assignment.Employee" autowire="byType"></bean> -->
+ 
+ 
+ 
+ <bean id="t" class="org.manipalpro.springcore.Assignment.Department"></bean>
+<bean id="employee" class="org.manipalpro.springcore.Assignment.Employee" autowire="constructor"></bean>
+</beans>
