@@ -1,0 +1,17 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="dept" class="org.npci.spring.assignment.Department" ></bean>
+	
+	<!-- <bean id="emp" class="org.npci.spring.assignment.Employee" autowire = "byName"> -->
+	<!-- <bean id="emp" class="org.npci.spring.assignment.Employee" autowire = "byType"> -->
+	<bean id="emp" class="org.npci.spring.assignment.Employee" autowire = "constructor">
+		<!-- <property name="dept" ref="dept"></property> -->
+		<!-- <constructor-arg ref="dept"></constructor-arg> -->
+	
+	</bean>
+
+
+</beans>
