@@ -5,8 +5,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
 
-<!-- dependencies should be defined here Test
--->
+<!-- dependencies should be defined here Test -->
 
 <!-- bean definition -->
 <bean id="add" class="org.manipalpro.springcore.dependencyinjection.Addition"></bean>

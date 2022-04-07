@@ -1,0 +1,21 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+<!-- dependencies should be defined here Test
+-->
+
+<!-- bean definition -->
+<bean id="department" class="org.manipalpro.springcore.dependency.Department"></bean>
+
+<bean id="employee" class="org.manipalpro.springcore.dependency.Employee" autowire="byType">
+	<!-- <property name="deptName" ref="department"></property> -->
+</bean>
+
+<!-- <bean id="employee" class="org.manipalpro.springcore.dependency.Employee">
+	<constructor-arg ref="deptName"></constructor-arg>
+</bean>
+<bean id="deptName" class="org.manipalpro.springcore.dependency.Department"></bean>
+ -->
+</beans>
