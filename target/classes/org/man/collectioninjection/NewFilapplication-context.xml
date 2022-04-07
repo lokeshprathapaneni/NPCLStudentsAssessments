@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+ <!-- dependencies should be defined here Test
+-->
+<!-- bean defintion -->
+
+<bean id="student" class="org.man.collectioninjection.Student">
+<property name="student">
+<set value-type="org.man.collectioninjection.Student"> <!-- value type is type of object
+ --> 
+ <ref bean="s1"/>
+
+</set>
+</property>
+</bean>
+
+<bean id="s1" class="org.man.collectioninjection.Student">
+<property name="id" value="102"></property>
+</bean>
+</beans>

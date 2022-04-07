@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+ <!-- dependencies should be defined here Test
+-->
+<!-- bean defintion -->
+
+<bean id="emp" class="org.man.collectioninjection.EmployeeMapcollection">
+	<property name="employee">
+		<map key-type="java.lang.Integer" >
+			<entry key="1" value="ECE"></entry>
+		</map>
+	</property>
+</bean>
+
+	
+</beans>
