@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+<!--setter injection
+ <bean id="dept" class="org.man.springframeprac.springinjection.Department"></bean>
+<bean id="emp" class="org.man.springframeprac.springinjection.Employee">
+<property name="department" ref="dept"></property>
+</bean> -->
+
+<!-- constructor injection
+<bean id="dept" class="org.man.springframeprac.springinjection.Department" ></bean>
+<bean id="emp" class="org.man.springframeprac.springinjection.Employee">
+<constructor-arg ref="dept"></constructor-arg>
+</bean> -->
+
+<!-- byName
+<bean id="dept" class="org.man.springframeprac.springinjection.Department" autowire="byName"></bean>
+<bean id="emp" class="org.man.springframeprac.springinjection.Employee">
+<property name="department" ref="dept"></property>
+</bean> -->
+
+<!-- byType
+<bean id="dept" class="org.man.springframeprac.springinjection.Department" autowire="byType"></bean>
+<bean id="emp" class="org.man.springframeprac.springinjection.Employee">
+<property name="department" ref="dept"></property>
+</bean> -->
+
+<bean id="dept" class="org.man.springframeprac.springinjection.Department" autowire="constructor"></bean>
+<bean id="emp" class="org.man.springframeprac.springinjection.Employee">
+<property name="department" ref="dept"></property>
+</bean>
+
+</beans>
