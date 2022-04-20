@@ -1,6 +1,9 @@
 package com.mp.employeeapp.controller;
 
+import java.util.List;
 import java.util.Optional;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,6 +33,7 @@ public class EmployeeController {
 	
 	@PostMapping("/save")
 	public String createEmployee(@RequestBody Employee emp) {
+		
 		Employee e = Emp.save(emp);
 		return e.getfName() + "addedd Successfully";
 	}
@@ -39,4 +43,21 @@ public class EmployeeController {
 		return "Employee deleted successfully";
 		
 	}
+	
+	@DeleteMapping("/delete/{fName}/{LName}")
+	@Transactional
+	public String deleteEmpfName(@PathVariable(value="fName") String emp,@PathVariable(value="LName") String LName) {
+		Emp.deleteByfName(emp);
+		Emp.deleteByfNameOrLName(emp, LName);
+		return "Employee deleted successfully";
+		
+	}
+	
+	@GetMapping("/{fName}/{LName}")
+	public List<Employee> getempName(@PathVariable(value="fName") String fName,@PathVariable(value="LName") String LName) {
+		List<Employee> empdetails = Emp.findByfNameAndLName(fName, LName);
+		return empdetails;
+	}
+	
+	
 }

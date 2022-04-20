@@ -15,15 +15,19 @@ public class Employee {
 	
 	@Column (name="fName")
 	String fName;
+	
+	@Column(name="LName")
+	String LName;
 
-	public Employee(Integer sId, String fName) {
+	public Employee() {
+		
+	}
+
+	public Employee(Integer sId, String fName, String LName) {
 		super();
 		this.sId = sId;
 		this.fName = fName;
-	}
-
-	public Employee() {
-		;
+		this.LName = LName;
 	}
 
 	public Integer getsId() {
@@ -41,6 +45,17 @@ public class Employee {
 	public void setfName(String fName) {
 		this.fName = fName;
 	}
+
+	public String getlName() {
+		return LName;
+	}
+
+	public void setlName(String LName) {
+		this.LName = LName;
+	}
+	
+	
+
 	
 	
 
