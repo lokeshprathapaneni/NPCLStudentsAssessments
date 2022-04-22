@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.npci</groupId>
-	<artifactId>spring_mini_project</artifactId>
+	<artifactId>library_application</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring_mini_project</name>
+	<name>Library Application</name>
 	<description>Spring Data JPA Example</description>
 	<properties>
 		<java.version>1.8</java.version>

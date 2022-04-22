@@ -1,4 +1,4 @@
-package com.npci.spring_mini_project.exception;
+package com.npci.libraryapp.exception;
 
 public class PublishYearException extends RuntimeException {
 

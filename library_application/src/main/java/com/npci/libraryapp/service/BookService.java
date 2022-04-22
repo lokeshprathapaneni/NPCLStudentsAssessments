@@ -1,4 +1,4 @@
-package com.npci.spring_mini_project.service;
+package com.npci.libraryapp.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,11 +8,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.npci.spring_mini_project.dao.BookRepository;
-import com.npci.spring_mini_project.entity.Book;
-import com.npci.spring_mini_project.exception.BookIdCheckException;
-import com.npci.spring_mini_project.exception.PublishYearException;
-import com.npci.spring_mini_project.exception.TitleCheckException;
+import com.npci.libraryapp.dao.BookRepository;
+import com.npci.libraryapp.entity.Book;
+import com.npci.libraryapp.exception.BookIdCheckException;
+import com.npci.libraryapp.exception.PublishYearException;
+import com.npci.libraryapp.exception.TitleCheckException;
 
 @Service
 public class BookService {

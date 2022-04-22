@@ -1,4 +1,4 @@
-package com.npci.spring_mini_project.exception;
+package com.npci.libraryapp.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;

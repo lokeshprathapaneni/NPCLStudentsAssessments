@@ -1,13 +1,13 @@
-package com.npci.spring_mini_project;
+package com.npci.libraryapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringMiniProjectApplication {
+public class LibraryApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringMiniProjectApplication.class, args);
+		SpringApplication.run(LibraryApplication.class, args);
 	}
 
 }

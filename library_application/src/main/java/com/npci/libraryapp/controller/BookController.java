@@ -1,4 +1,4 @@
-package com.npci.spring_mini_project.controller;
+package com.npci.libraryapp.controller;
 
 import java.util.List;
 
@@ -19,9 +19,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.npci.spring_mini_project.entity.Book;
-
-import com.npci.spring_mini_project.service.BookService;
+import com.npci.libraryapp.entity.Book;
+import com.npci.libraryapp.service.BookService;
 
 @RestController
 @RequestMapping(value = "/book")

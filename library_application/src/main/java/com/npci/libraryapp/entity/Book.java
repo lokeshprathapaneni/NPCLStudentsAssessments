@@ -1,4 +1,4 @@
-package com.npci.spring_mini_project.entity;
+package com.npci.libraryapp.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
