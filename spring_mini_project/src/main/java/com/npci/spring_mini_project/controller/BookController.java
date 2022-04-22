@@ -1,13 +1,14 @@
 package com.npci.spring_mini_project.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.transaction.Transactional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -18,96 +19,61 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.npci.spring_mini_project.dao.BookRepository;
 import com.npci.spring_mini_project.entity.Book;
-import com.npci.spring_mini_project.exception.BookIdCheckException;
-import com.npci.spring_mini_project.exception.PublishYearException;
-import com.npci.spring_mini_project.exception.TitleCheckException;
+
+import com.npci.spring_mini_project.service.BookService;
 
 @RestController
 @RequestMapping(value = "/book")
 public class BookController {
 
 	@Autowired
-	private BookRepository bookRepo;
-	
+	private BookService bookService;
+
 	Logger LOGGER = LoggerFactory.getLogger("BookController.class");
 
 	@PostMapping(value = "/adddetails")
-	public String saveBookDetails(@RequestBody Book book) {
-		LOGGER.info("Saving Book details for bookId:{}",book.getBookId());
-		if (book.getTitle().length() > 30) {
-			throw new TitleCheckException("Book Tiltle Length should be less than 30 characters");
-		}
+	public ResponseEntity<String> saveBookDetails(@RequestBody Book book) {
+		String saveBookDetails = bookService.saveBookDetails(book);
+		return new ResponseEntity<>(saveBookDetails, HttpStatus.CREATED);
 
-		if (book.getYearOfPublish() >= 2022) {
-			throw new PublishYearException("Year of publish should be less than or Equals to current year");
-		}
-		
-		bookRepo.save(book);
-		LOGGER.info("Book details for bookId:{} has been saved",book.getBookId());
-		return "Book Details has been saved for Book id " + book.getBookId();
 	}
 
 	@PutMapping("/detailsUpdate")
-	public Book updateBookDetails(@RequestBody Book book) {
-		LOGGER.info("Updating book details for bookId:{}",book.getBookId());
-		Book updatedDetails = bookRepo.save(book);
-		LOGGER.info("Book details for bookId:{} has been updated",book.getBookId());
-		return updatedDetails;
+	public ResponseEntity<Book> updateBookDetails(@RequestBody Book book) {
+		Book updateBookDetails = bookService.updateBookDetails(book);
+		return new ResponseEntity<>(updateBookDetails, HttpStatus.OK);
 	}
 
 	@PatchMapping("/authorNameUp")
-	public Book updateAuthorName(@RequestBody Book book) {
-		if (book.getBookId() == null) {
-			throw new BookIdCheckException("Please Enter Book Id,book Id is a mandatory field.");
-		}
-		LOGGER.info("Updating book details for bookId:{}",book.getBookId());
-		Optional<Book> findById = bookRepo.findById(book.getBookId());
-		Book bookDetails = findById.get();
-		bookDetails.setAuthorName(book.getAuthorName());
-		bookRepo.save(bookDetails);
-		LOGGER.info("Book details for bookId:{} has been updated with AuthorName:{}",book.getBookId(),book.getAuthorName());
-		return bookDetails;
+	public ResponseEntity<Book> updateAuthorName(@RequestBody Book book) {
+		Book updateAuthorName = bookService.updateAuthorName(book);
+		return new ResponseEntity<>(updateAuthorName, HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/bookById/{bookId}")
-	public Book fetchBookforId(@PathVariable Integer bookId) {
-		LOGGER.info("Retrieving book details for bookId:{}",bookId);
-		Optional<Book> findById = bookRepo.findById(bookId);
-		if (!findById.isPresent()) {
-			throw new BookIdCheckException("Book Id is invalid,It doesn't exist in db");
-		}
-		Book book = findById.get();
-		LOGGER.info("Retrieved Book details for bookId:{}  is {}",book.getBookId(),book);
-		return book;
-
+	public ResponseEntity<Book> fetchBookforId(@PathVariable Integer bookId) {
+		Book fetchBookforId = bookService.fetchBookforId(bookId);
+		return new ResponseEntity<>(fetchBookforId, HttpStatus.ACCEPTED);
 	}
 
 	@DeleteMapping(value = "/bookRemove/{bookId}")
-	public String deleteBookByid(@PathVariable Integer bookId) {
-		LOGGER.info("Deleting Book details for bookId:{}",bookId);
-		bookRepo.deleteById(bookId);
-		LOGGER.info("Book details for bookId:{} has been deleted",bookId);
-		return "Deleted Details for BookID:" + bookId;
+	public ResponseEntity deleteBookByid(@PathVariable Integer bookId) {
+		bookService.deleteBookByid(bookId);
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 
 	@GetMapping(value = "/bookByTitleAndAuthor")
-	public List<Book> getBookByTitleAndAuthor(@RequestBody Book book) {
-		LOGGER.info("Retrieving Book details for title:{} and author:{}",book.getTitle(),book.getAuthorName());
-		List<Book> findByTitleAndAuthorName = bookRepo.findByTitleAndAuthorName(book.getTitle(), book.getAuthorName());
-		LOGGER.info("Retrieved Book details for title:{} and author:{} is {}",book.getTitle(),book.getAuthorName(),findByTitleAndAuthorName);
-		return findByTitleAndAuthorName;
-
+	public ResponseEntity<List<Book>> getBookByTitleAndAuthor(@RequestBody Book book) {
+		List<Book> bookByTitleAndAuthor = bookService.getBookByTitleAndAuthor(book);
+		return new ResponseEntity<>(bookByTitleAndAuthor, HttpStatus.ACCEPTED);
 	}
-	
+
 	@DeleteMapping(value = "/removetitleorAuthor")
 	@Transactional
-	public String delByTitleOrAuthorName(@RequestBody Book book) {
-		LOGGER.info("Deleting Book details by title:{} or author:{}",book.getTitle(),book.getAuthorName());
-		bookRepo.deleteByTitleOrAuthorName(book.getTitle(),book.getAuthorName());
-		LOGGER.info("Book details for title:{} or author:{} has been deleted",book.getTitle(),book.getAuthorName());
-		return "Deleted the details for all Books Including Title:"+book.getTitle()+" or authorName:"+book.getAuthorName();
+	public ResponseEntity delByTitleOrAuthorName(@RequestBody Book book) {
+		bookService.delByTitleOrAuthorName(book);
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 
 }
