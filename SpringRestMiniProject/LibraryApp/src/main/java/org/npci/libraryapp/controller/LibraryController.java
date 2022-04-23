@@ -44,7 +44,7 @@ public class LibraryController {
 //			throw new InvalidPublishYearException("Publish year should be less than or equal to 2022");
 //		}
 //		Book save = dao.save(b);
-		return new ResponseEntity<String>("Book "+book.getBookId()+" saved",HttpStatus.OK);
+		return new ResponseEntity<String>("Book "+book.getBookId()+" saved",HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/library/b")
@@ -84,7 +84,7 @@ public class LibraryController {
 		
 //		dao.deleteById(id);
 		libraryServices.byIdDelete(id);
-		return new ResponseEntity<String>("deleted according to id",HttpStatus.OK);
+		return new ResponseEntity<String>("deleted according to id",HttpStatus.NO_CONTENT);
 	}
 	
 	@GetMapping("/lookByTitleAndAuthorName/{title}/{author}")
@@ -98,7 +98,7 @@ public class LibraryController {
 	public ResponseEntity<String> deleteByTitleOrAuthorName(@PathVariable("title") String t, @PathVariable("author") String an) {
 //		dao.deleteByTitleOrAuthorName(t, an);
 		libraryServices.byTitleOrAuthorNameDelete(t, an);
-		return new ResponseEntity<String>("deleted by Title Or AuthorName",HttpStatus.OK);
+		return new ResponseEntity<String>("deleted by Title Or AuthorName",HttpStatus.NO_CONTENT);
 	}
 
 }
