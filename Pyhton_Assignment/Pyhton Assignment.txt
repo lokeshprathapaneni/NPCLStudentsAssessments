@@ -1,0 +1,50 @@
+Q).1 aaaabbbcc -->a4b3c2
+
+
+
+s=input();
+pre=s[0]
+output=''
+c=1
+i=1
+while i<len(s):
+    if(s[i]==pre):
+        c=c+1
+    else:
+        output=output+str(c)+pre
+        pre=s[i]
+        c=1
+    if(i==len(s)-1):
+        output=output+str(c)+pre
+    i=i+1 
+print(output) 
+
+
+
+Q).2To reverse the String by using slice
+
+
+string="aaaabbbcc"[::-1]
+print(string)
+
+
+
+
+
+
+Q).3  a4k3b2 -->aeknbd
+
+
+
+String=input()
+output=''
+for char in String:
+    if(char.isalpha()):
+        output=output+char
+        x=char
+    else:
+        d=int(char)
+        newchar=chr(ord(x)+d)
+        output=output+newchar
+        
+print(output)        
