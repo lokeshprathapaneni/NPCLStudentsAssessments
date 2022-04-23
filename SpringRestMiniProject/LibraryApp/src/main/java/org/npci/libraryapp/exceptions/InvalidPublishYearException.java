@@ -5,7 +5,7 @@ public class InvalidPublishYearException extends RuntimeException{
 	String message;
 
 	public InvalidPublishYearException(String message) {
-		this.message = message;
+		super(message);
 	}
 	
 }

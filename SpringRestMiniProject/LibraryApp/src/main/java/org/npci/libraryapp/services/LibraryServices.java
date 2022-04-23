@@ -18,7 +18,7 @@ public class LibraryServices {
 	@Autowired
 	LibraryDao dao;
 	
-	public Book create(Book b) {
+	public String create(Book b) {
 		
 		if(b.getTitle().length()>30) {
 			throw new TitleLengthInvalidException("Title should be less than 30 characters");
@@ -26,8 +26,8 @@ public class LibraryServices {
 		if(b.getYearOfPublish()>2022) {
 			throw new InvalidPublishYearException("Publish year should be less than or equal to 2022");
 		}
-		Book bb = dao.save(b);
-		return bb;
+		dao.save(b);
+		return "book saved";
 	}
 	public void updateFields(Book b) {
 		dao.save(b);

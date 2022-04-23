@@ -6,7 +6,7 @@ public class InvalidBookIdException extends RuntimeException{
 
 	public InvalidBookIdException(String message) {
 		
-		this.message = message;
+		super(message);	
 	}
 	
 }

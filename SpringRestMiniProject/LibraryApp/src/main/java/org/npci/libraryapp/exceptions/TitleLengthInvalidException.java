@@ -5,7 +5,7 @@ public class TitleLengthInvalidException extends RuntimeException{
 	private String message;
 
 	public TitleLengthInvalidException(String message) {
-		this.message = message;
+		super(message);	
 	}
 	
 	

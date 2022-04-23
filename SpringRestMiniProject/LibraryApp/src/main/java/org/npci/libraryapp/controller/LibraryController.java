@@ -33,10 +33,10 @@ public class LibraryController {
 	@Autowired
 	LibraryServices libraryServices;
 	
-	@PostMapping("save")
+	@PostMapping("/save")
 	public ResponseEntity<String> createBook(@RequestBody Book b) {
 		
-		Book book = libraryServices.create(b);
+		String create = libraryServices.create(b);
 //		if(b.getTitle().length()>30) {
 //			throw new TitleLengthInvalidException("Title should be less than 30 characters");
 //		}
@@ -44,7 +44,7 @@ public class LibraryController {
 //			throw new InvalidPublishYearException("Publish year should be less than or equal to 2022");
 //		}
 //		Book save = dao.save(b);
-		return new ResponseEntity<String>("Book "+book.getBookId()+" saved",HttpStatus.CREATED);
+		return new ResponseEntity<String>(create+b.getBookId(),HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/library/b")

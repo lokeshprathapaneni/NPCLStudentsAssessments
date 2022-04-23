@@ -5,7 +5,7 @@ public class BookIdMandatoryException extends RuntimeException {
 	String message;
 
 	public BookIdMandatoryException(String message) {
-		this.message = message;
+		super(message);	
 	}
 	
 }
