@@ -9,6 +9,7 @@ import org.npci.libraryapp.exceptions.BookIdMandatoryException;
 import org.npci.libraryapp.exceptions.InvalidBookIdException;
 import org.npci.libraryapp.exceptions.InvalidPublishYearException;
 import org.npci.libraryapp.exceptions.TitleLengthInvalidException;
+import org.npci.libraryapp.services.ILibraryService;
 import org.npci.libraryapp.services.LibraryServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,74 +31,57 @@ public class LibraryController {
 	@Autowired
 	LibraryDao dao;
 	
+	
 	@Autowired
-	LibraryServices libraryServices;
+	ILibraryService iLibraryService;
 	
 	@PostMapping("/save")
 	public ResponseEntity<String> createBook(@RequestBody Book b) {
 		
-		String create = libraryServices.create(b);
-//		if(b.getTitle().length()>30) {
-//			throw new TitleLengthInvalidException("Title should be less than 30 characters");
-//		}
-//		if(b.getYearOfPublish()>2022) {
-//			throw new InvalidPublishYearException("Publish year should be less than or equal to 2022");
-//		}
-//		Book save = dao.save(b);
+		String create = iLibraryService.create(b);		
 		return new ResponseEntity<String>(create+b.getBookId(),HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/library/b")
 	public ResponseEntity<String> updateAllFields(@RequestBody Book b) {
-//		dao.save(b);
-		libraryServices.updateFields(b);
+		iLibraryService.updateFields(b);
 		return new ResponseEntity<String>("All fields updated", HttpStatus.OK);
 	}
 	
 	@PatchMapping("/library/name")
 	public ResponseEntity<String> updateAuthorName(@RequestBody Book b) {
-//		if(b.getBookId() == 0) {
-//			throw new BookIdMandatoryException("Book id is mandatory");
-//		}
-//		Optional<Book> findById = dao.findById(b.getBookId());
-//		Book book = findById.get();
-//		book.setAuthorName(b.getAuthorName());
-//		dao.save(book);
-		libraryServices.updateAuthor(b);
+
+		iLibraryService.updateAuthor(b);
 		return new ResponseEntity<String>("author name updated for: "+b.getBookId(),HttpStatus.OK);
 	}
 	
 	@GetMapping("/library/{bookId}")
 	public ResponseEntity<Book> getBook(@PathVariable("bookId") Integer id) {
 		
-//		Optional<Book> findById = dao.findById(id);
-//		Book book = findById.get();
-//		if(book.equals(null)) {
-//			throw new InvalidBookIdException("book id not present in database");
-//		}
-		Book bookByID = libraryServices.bookByID(id);
+
+		Book bookByID = iLibraryService.bookByID(id);
 		return new ResponseEntity<Book>(bookByID,HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/delete/{bookId}")
 	public ResponseEntity<String> deleteBookById(@PathVariable("bookId") Integer id) {
 		
-//		dao.deleteById(id);
-		libraryServices.byIdDelete(id);
+
+		iLibraryService.byIdDelete(id);
 		return new ResponseEntity<String>("deleted according to id",HttpStatus.NO_CONTENT);
 	}
 	
 	@GetMapping("/lookByTitleAndAuthorName/{title}/{author}")
 	public ResponseEntity<List<Book>> findBookByTitleAndAuthorName(@PathVariable("title") String t, @PathVariable("author") String an) {
-//		List<Book> findByTitleAndAuthorName = dao.findByTitleAndAuthorName(t, an);
-		List<Book> byTitleAndAuthorName = libraryServices.byTitleAndAuthorName(t, an);
+
+		List<Book> byTitleAndAuthorName = iLibraryService.byTitleAndAuthorName(t, an);
 		return new ResponseEntity<List<Book>>(byTitleAndAuthorName,HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/delByTitleOrAuthorName/{title}/{author}")
 	public ResponseEntity<String> deleteByTitleOrAuthorName(@PathVariable("title") String t, @PathVariable("author") String an) {
-//		dao.deleteByTitleOrAuthorName(t, an);
-		libraryServices.byTitleOrAuthorNameDelete(t, an);
+
+		iLibraryService.byTitleOrAuthorNameDelete(t, an);
 		return new ResponseEntity<String>("deleted by Title Or AuthorName",HttpStatus.NO_CONTENT);
 	}
 
