@@ -12,7 +12,7 @@ import com.mp.LibraryApp.Entity.Book;
 import com.mp.LibraryApp.dao.BookDao;
 
 
-@Service
+
 public interface IBookService {
 	 
 	
