@@ -17,13 +17,14 @@ import com.springboot.libraryapp.exceptions.InvalidBookIdException;
 import com.springboot.libraryapp.exceptions.InvalidYearException;
 
 @Service
-public class LibraryServices {
+public class LibraryServices implements ILibraryServices {
 	
 	@Autowired
 	private LibraryDao dao;
 	
-	Logger LOGGER = LoggerFactory.getLogger("BookServices.class");
+	Logger LOGGER = LoggerFactory.getLogger("LibraryServices.class");
 	
+	@Override
 	public Library addNewBook(Library lib){
 		LOGGER.info("Adding book of Id: {}",lib.getBookId());
 		if(lib.getYearOFPublish()>2022) {
@@ -38,6 +39,7 @@ public class LibraryServices {
 
 	}
 	
+	@Override
 	public Library updateBook(Library lib) {
 		LOGGER.info("Updating Book details for Book Id: {}.",lib.getBookId());
 		dao.save(lib);
@@ -45,6 +47,7 @@ public class LibraryServices {
 		return lib;
 	}
 	
+	@Override
 	public Library updateAuthorName(Library lib) {
 		LOGGER.info("Updating Author Name for Book Id: {}.",lib.getBookId());
 		if(lib.getBookId()==null) {
@@ -58,6 +61,7 @@ public class LibraryServices {
 		return lib;
 	}
 	
+	@Override
 	public Library getBook(Integer bookId) {
 		LOGGER.info("Getting Details for Book Id: {}.",bookId);
 		Optional<Library> li = dao.findById(bookId);
@@ -68,6 +72,7 @@ public class LibraryServices {
 		return li.get();
 	}
 	
+	@Override
 	public String delById(Integer bookId) {
 		LOGGER.info("Deleting Details of Book for Book Id: {}.",bookId);
 		dao.deleteById(bookId);
@@ -75,6 +80,7 @@ public class LibraryServices {
 		return "Book deleted";
 	}
 	
+	@Override
 	public List<Library> getBookByTitleAndAuthor(String title, String authorName){
 		LOGGER.info("Finding Details of Book with Title: '{}' and Author: '{}'.",title,authorName);
 		List<Library> li=dao.findByTitleAndAuthorName(title, authorName);
@@ -82,6 +88,7 @@ public class LibraryServices {
 		return li;
 	}
 	
+	@Override
 	public String deleteBook(String title,String authorName) {
 		LOGGER.info("Deleting Details of Book with Title: '{}' or Author: '{}'.",title,authorName);
 		dao.deleteByTitleOrAuthorName(title,authorName);

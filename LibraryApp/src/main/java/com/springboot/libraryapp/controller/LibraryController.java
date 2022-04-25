@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.libraryapp.entity.Library;
+import com.springboot.libraryapp.services.ILibraryServices;
 import com.springboot.libraryapp.services.LibraryServices;
 
 @RestController
@@ -26,7 +27,7 @@ public class LibraryController {
 
 	
 	@Autowired
-	private LibraryServices libraryServices;
+	private ILibraryServices libraryServices;
 	
 	@PostMapping("/lib1")
 	public ResponseEntity<String> addNewBook(@RequestBody Library lib) {
