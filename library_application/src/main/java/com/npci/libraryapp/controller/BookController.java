@@ -20,31 +20,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.npci.libraryapp.entity.Book;
-import com.npci.libraryapp.service.BookService;
+import com.npci.libraryapp.service.IBookService;
 
 @RestController
 @RequestMapping(value = "/book")
 public class BookController {
 
 	@Autowired
-	private BookService bookService;
+	private IBookService bookService;
 
 	Logger LOGGER = LoggerFactory.getLogger("BookController.class");
 
-	@PostMapping(value = "/adddetails")
+	@PostMapping(value = "/storeBook")
 	public ResponseEntity<String> saveBookDetails(@RequestBody Book book) {
 		String saveBookDetails = bookService.saveBookDetails(book);
 		return new ResponseEntity<>(saveBookDetails, HttpStatus.CREATED);
 
 	}
 
-	@PutMapping("/detailsUpdate")
+	@PutMapping(value = "/modifyBookInfo")
 	public ResponseEntity<Book> updateBookDetails(@RequestBody Book book) {
 		Book updateBookDetails = bookService.updateBookDetails(book);
 		return new ResponseEntity<>(updateBookDetails, HttpStatus.OK);
 	}
 
-	@PatchMapping("/authorNameUp")
+	@PatchMapping(value = "/modifyAuthorName")
 	public ResponseEntity<Book> updateAuthorName(@RequestBody Book book) {
 		Book updateAuthorName = bookService.updateAuthorName(book);
 		return new ResponseEntity<>(updateAuthorName, HttpStatus.OK);
@@ -56,7 +56,7 @@ public class BookController {
 		return new ResponseEntity<>(fetchBookforId, HttpStatus.ACCEPTED);
 	}
 
-	@DeleteMapping(value = "/bookRemove/{bookId}")
+	@DeleteMapping(value = "/stockOutBookById/{bookId}")
 	public ResponseEntity deleteBookByid(@PathVariable Integer bookId) {
 		bookService.deleteBookByid(bookId);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -65,10 +65,11 @@ public class BookController {
 	@GetMapping(value = "/bookByTitleAndAuthor")
 	public ResponseEntity<List<Book>> getBookByTitleAndAuthor(@RequestBody Book book) {
 		List<Book> bookByTitleAndAuthor = bookService.getBookByTitleAndAuthor(book);
+		System.out.println("Books" + bookByTitleAndAuthor);
 		return new ResponseEntity<>(bookByTitleAndAuthor, HttpStatus.ACCEPTED);
 	}
 
-	@DeleteMapping(value = "/removetitleorAuthor")
+	@DeleteMapping(value = "/stockOutBookByTitleOrAuthor")
 	@Transactional
 	public ResponseEntity delByTitleOrAuthorName(@RequestBody Book book) {
 		bookService.delByTitleOrAuthorName(book);
