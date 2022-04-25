@@ -1,10 +1,12 @@
 package com.springboot.libraryapp.controller;
 
-import java.util.Optional;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -15,80 +17,64 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.libraryapp.dao.LibraryDao;
 import com.springboot.libraryapp.entity.Library;
-import com.springboot.libraryapp.exceptions.BookIdNotPresentException;
-import com.springboot.libraryapp.exceptions.CharacterLengthException;
-import com.springboot.libraryapp.exceptions.InvalidBookIdException;
-import com.springboot.libraryapp.exceptions.InvalidYearException;
-
-import java.util.List;
+import com.springboot.libraryapp.services.LibraryServices;
 
 @RestController
 @RequestMapping("/lib")
 public class LibraryController {
 
+	
 	@Autowired
-	LibraryDao dao;
+	private LibraryServices libraryServices;
 	
 	@PostMapping("/lib1")
-	public String addNewBook(@RequestBody Library lib) {
+	public ResponseEntity<String> addNewBook(@RequestBody Library lib) {
+
+		Library l=libraryServices.addNewBook(lib);
+		return new ResponseEntity<String>("Book"+l.getTitle()+"added to library",HttpStatus.CREATED);
 		
-		if(lib.getYearOFPublish()>2022) {
-			throw new InvalidYearException("year of publish should be less than or equals to current year");
-		}
-		if(lib.getTitle().length()>30) {
-			throw new CharacterLengthException("Book title should be less than 30 charecters ");
-		}
-		Library l=dao.save(lib);
-		return "Book"+l.getTitle()+"added to library";
 	}
 	
 	@PutMapping("/lib2")
-	public String updateBook(@RequestBody Library lib) {
-		dao.save(lib);
-		return lib.getTitle()+"Updated";
+	public ResponseEntity<String> updateBook(@RequestBody Library lib) {
+		
+		Library l=libraryServices.updateBook(lib);
+		return new ResponseEntity<String>(l.getTitle()+"Updated",HttpStatus.ACCEPTED);
 	}
 
 	@PatchMapping("/lib3")
-	public String updateAuthorName(@RequestBody Library lib) {
-		if(lib.getBookId()==null) {
-			throw new BookIdNotPresentException("BookId is mandatory");
-		}
-		Optional<Library> opt = dao.findById(lib.getBookId());
-		Library li = opt.get();
-		li.setAuthorName(lib.getAuthorName());
-		dao.save(li);
-		return "Author name of"+lib.getBookId()+"updated";
+	public ResponseEntity<String>  updateAuthorName(@RequestBody Library lib) {
+		Library l=libraryServices.updateAuthorName(lib);
+		return new ResponseEntity<String>("Author name of"+lib.getBookId()+"updated",HttpStatus.ACCEPTED);
 	}
 
 	@GetMapping("/lib4/{bookId}")
-	public Library getBook(@PathVariable("bookId") Integer bookId) {
-		Optional<Library> li = dao.findById(bookId);
-		if(!li.isPresent()) {
-			throw new InvalidBookIdException("BookID doesnt exist in db");
-		}
-		return li.get();
+	public ResponseEntity<Library> getBook(@PathVariable("bookId") Integer bookId) {
+		Library l=libraryServices.getBook(bookId);
+		return new ResponseEntity<Library>(l,HttpStatus.OK);
+		
 	}
 	
 	@DeleteMapping("/lib5/{id}")
-	public String delById(@PathVariable("id") Integer bookId) {
-		dao.deleteById(bookId);
-		return "Book deleted";
+	public ResponseEntity<String> delById(@PathVariable("id") Integer bookId) {
+		libraryServices.delById(bookId);
+		return new ResponseEntity<String>("Book deleted",HttpStatus.NO_CONTENT);
 	}
 	
 	
 	@GetMapping("/lib6/{title}/{authorName}")
-	public List<Library> getBookByTitleAndAuthor(@PathVariable("title") String title,@PathVariable("authorName") String authorName){
-		List<Library> li=dao.findByTitleAndAuthorName(title, authorName);
-		return li;
+	public ResponseEntity<List<Library>> getBookByTitleAndAuthor(@PathVariable("title") String title,@PathVariable("authorName") String authorName){
+		List<Library> l=libraryServices.getBookByTitleAndAuthor(title, authorName);
+		return new ResponseEntity<List<Library>>(l,HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/lib7/{t}/{a}")
 	@Transactional
-	public String deleteBook(@PathVariable("t") String title,@PathVariable("a") String authorName) {
-		dao.deleteByTitleOrAuthorName(title,authorName);
-		return "Book deleted";
+	public ResponseEntity<String> deleteBook(@PathVariable("t") String title,@PathVariable("a") String authorName) {
+		libraryServices.deleteBook(title, authorName);
+		return new ResponseEntity<String>("Book deleted",HttpStatus.NO_CONTENT);
+		
 	}
 	
 	
