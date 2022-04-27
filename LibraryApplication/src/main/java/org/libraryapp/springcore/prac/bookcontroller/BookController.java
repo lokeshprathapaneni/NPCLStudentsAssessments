@@ -5,7 +5,7 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.libraryapp.springcore.prac.bookclass.Book;
-import org.libraryapp.springcore.prac.interfaces.IBookService;
+import org.libraryapp.springcore.prac.service.IBookService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package org.libraryapp.springcore.prac.interfaces;
+package org.libraryapp.springcore.prac.service;
 
 import java.util.List;
 import java.util.Optional;

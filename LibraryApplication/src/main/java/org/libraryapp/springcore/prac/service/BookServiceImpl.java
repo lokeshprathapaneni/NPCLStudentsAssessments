@@ -1,4 +1,4 @@
-package org.libraryapp.springcore.prac.impl;
+package org.libraryapp.springcore.prac.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,7 +9,6 @@ import org.libraryapp.springcore.prac.exception.BookIdIsNotPresentException;
 import org.libraryapp.springcore.prac.exception.BookIdIsNotValid;
 import org.libraryapp.springcore.prac.exception.LengthTitleException;
 import org.libraryapp.springcore.prac.exception.YearOfPublishException;
-import org.libraryapp.springcore.prac.interfaces.IBookService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
