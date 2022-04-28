@@ -45,7 +45,6 @@
     		<artifactId>lombok</artifactId>
     		<scope>provided</scope>
 		</dependency> 
-<<<<<<< HEAD
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-boot-starter</artifactId>
@@ -61,8 +60,6 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>3.0.0</version>
 		</dependency>
-=======
->>>>>>> ae4c06cdfc7a798ad8ee94a76263c1fe42dc142e
 	</dependencies>
 
 	<build>

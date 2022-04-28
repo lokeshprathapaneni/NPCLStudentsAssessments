@@ -26,11 +26,8 @@ public class CentralExceptionHandler {
 		return e.getMessage();
 	}
 	
-<<<<<<< HEAD
+
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
-=======
-	@ResponseStatus(value = HttpStatus.CONFLICT)
->>>>>>> ae4c06cdfc7a798ad8ee94a76263c1fe42dc142e
 	@ExceptionHandler(YearOutOfBoundException.class)
 	public String wrongYear(YearOutOfBoundException e) {
 		LOGGER.error("Publishing Year cannot be greater than Current Year.");
