@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +31,8 @@ public class LibraryController {
 	@Autowired
 	private ILibraryServices libraryServices;
 	
+	Logger LOGGER=LoggerFactory.getLogger(LibraryController.class);
+	
 	@PostMapping("/lib1")
 	public ResponseEntity<String> addNewBook(@RequestBody Library lib) {
 
@@ -52,6 +56,7 @@ public class LibraryController {
 
 	@GetMapping("/lib4/{bookId}")
 	public ResponseEntity<Library> getBook(@PathVariable("bookId") Integer bookId) {
+		LOGGER.info("getting bookdetials for bookid: {}",bookId);
 		Library l=libraryServices.getBook(bookId);
 		return new ResponseEntity<Library>(l,HttpStatus.OK);
 		
@@ -59,6 +64,7 @@ public class LibraryController {
 	
 	@DeleteMapping("/lib5/{id}")
 	public ResponseEntity<String> delById(@PathVariable("id") Integer bookId) {
+		LOGGER.info("Deleting bookdetials for bookid: {}",bookId);
 		libraryServices.delById(bookId);
 		return new ResponseEntity<String>("Book deleted",HttpStatus.NO_CONTENT);
 	}
@@ -66,6 +72,7 @@ public class LibraryController {
 	
 	@GetMapping("/lib6/{title}/{authorName}")
 	public ResponseEntity<List<Library>> getBookByTitleAndAuthor(@PathVariable("title") String title,@PathVariable("authorName") String authorName){
+		LOGGER.info("deleting bookdetials title: {}  authorName: {}",title,authorName);
 		List<Library> l=libraryServices.getBookByTitleAndAuthor(title, authorName);
 		return new ResponseEntity<List<Library>>(l,HttpStatus.OK);
 	}
