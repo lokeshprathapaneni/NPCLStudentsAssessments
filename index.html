@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+</head>
+<body style="background-image:url('https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?cs=srgb&dl=pexels-miguel-%C3%A1-padri%C3%B1%C3%A1n-255379.jpg&fm=jpg') ;">
+   
+
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="https://cdn4.iconfinder.com/data/icons/business-and-finance-470/1080/User_Management-512.png" alt="" width="60" height="60" class="d-inline-block align-text-center">
+         <em>USER DATABASE</em>
+        </a>
+    
+    <div class="collapse navbar-collapse  align-text-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contacts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login</a>
+        </li>
+       
+      </ul>
+    </div>
+      </div>
+  </nav>
+<!-- Below container  -->
+
+  <div class="container" style="margin-top: 50px;">
+    <div class="row">
+      <div class="col" style="border:1px solid black ; display: flex; background-color: black;">
+        <img src="https://docs.communityhealthtoolkit.org/design/icons/forms_tasks_targets/SVGs/icon-death-general.svg" width="400px" height="400px" style="margin-top: 50px;" alt="">
+    <div style="flex-flow: row; background-color: cadetblue; height:250px; margin-top: 150px; color: yellow;">
+        <h3 style="color: red; padding: 5px;">Important</h3>
+        <ul>
+            <li>
+               Details are stored in backend database
+            </li>
+            <li>
+                Please provide correct details 
+             </li>
+             <li>
+                Details are used for verification prurpose in future
+             </li>
+        </ul>
+    </div>
+    </div>
+      <div class="col" style="background-color:black;">
+        <form style="background-color: rgb(21, 44, 36); width:500px; margin-left: 50px; padding: 70px;">
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <div class="row mb-4">
+              <div class="col">
+                <div class="form-outline">
+                  <input type="text" id="form3Example1" placeholder="First name" class="form-control" />
+                 
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-outline">
+                  <input type="text" id="form3Example2" placeholder="Last name" class="form-control" />
+                  
+                </div>
+              </div>
+            </div>
+
+           <!-- Address input -->
+           <div class="form-outline mb-4">
+               
+            <textarea name="address" id="address" placeholder="Address" cols="10" rows="5" class="form-control"></textarea>
+            
+          </div>
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="email" id="form3Example3" placeholder="Email address" class="form-control" />
+              
+            </div>
+           
+          
+            <!-- Phone Number input -->
+            <div class="form-outline mb-4">
+              <input type="Phnumber" id="form3Example4" placeholder="Phone Number" class="form-control" />
+              
+            </div>
+          
+            
+          
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-3 align-text-center ">SUBMIT</button>
+          
+           
+          </form>
+      </div>
+      
+    </div>
+  </div>
+</body>
+</html>
