@@ -13,7 +13,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th colspan="3" style="text-align: center; font-size: 40px;">User Data</th>
+                <th colspan="2" style="text-align: center; font-size: 40px;">User Data</th>
             </tr>
         </thead>
         <tbody>
@@ -21,34 +21,45 @@
                 <th scope="column" class="user-data" colspan="1">
                     <div class="container">
                         <div class="image">
-                            <img src="aaa.png" class="img-thumbnail" alt="user photo">
+                            <img src="CapAm.png" class="img-thumbnail" alt="user photo">
                         </div>
                         <div class="user-info">
                             <p>
-                                First Name: Johnny<br><br>
-                                Last Name: Depp<br><br>
-                                Email: johnny@gmail.com<br><br>
-                                Phone No: 9988345321
+                                First Name: Steve<br><br>
+                                Last Name: Rogers<br><br>
+                                Email: captain.america@avengers.com<br><br>
+                                Phone No: 6574839021
                             </p>
                         </div>
                     </div>
                 </th>
-                <th scope="column" colspan="2" class="user-form">
-                    <form action="/saveuser" class="form">
+                <th scope="column" colspan="1" class="user-form">
+
+                    <h2 class="form-heading">USER REGISTRATION</h2>
+
+                    <form class="form">
+                        <br>
                         <label for="fname">First name:</label><br>
                         <input type="text" id="fname" name="fname" placeholder="Ankur"><br><br>
+
                         <label for="lname">Last name:</label><br>
                         <input type="text" id="lname" name="lname" placeholder="Rai"><br><br>
+
                         <label for="email">Email:</label><br>
                         <input type="email" id="email" name="email" placeholder="ankur@gmail.com"><br><br>
+
                         <label for="phone">Phone No:</label><br>
-                        <input type="text" id="phone" name="phone" placeholder="9876543210"><br><br>
-                        <input type="submit" value="Submit Details">
+                        <input type="text" id="phone" name="phone" pattern="[6789][0-9]{9}"
+                            placeholder="9876543210"><br><br>
+
+                        <button onclick="outputData()">Submit</button><br><br>
                     </form>
                 </th>
             </tr>
         </tbody>
     </table>
+
+    <script src="index.js"></script>
 </body>
 
 </html>
