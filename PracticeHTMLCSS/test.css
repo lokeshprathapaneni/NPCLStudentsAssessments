@@ -32,8 +32,8 @@ img{
     margin-left: 10px;
     overflow-wrap: break-word;
 }
-p{
-    width: fit-content;
+.error{
+    color: red;
 }
 /*#hdiv{
     margin-bottom: 10px;
