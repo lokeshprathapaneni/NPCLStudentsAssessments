@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <table class="table">
+
+        <tr>
+            <th style=" font-size: 32px ;font-family: Verdana, Geneva, Tahoma, sans-serif ; color: goldenrod; ">COINBUY</th>
+        </tr>
+        <tr>
+            <th scope="col" class="coin-info">
+                <div class="container">
+                    <div class="coin-offers">
+                        <p><b>"Buy assests at an exclusive price"</b></p>
+                    </div>
+                    <div class="image">
+                        <img src="img.png" class="icon">
+                    </div>
+                </div>
+            </th>
+            <th scope="col" class="user-input-data">
+                <h2 class="reg-title">New User Registration</h2>
+                <form class="reg-info">
+
+                    <label for="fname">First Name</label>
+                    <br>
+                    <input type="text" id="fname" placeholder="Enter First Name">
+                    <br>
+                    <label for="lname">Last Name</label>
+                    <br>
+                    <input type="text" id="lname" placeholder="Enter Last Name">
+                    <br>
+                    <label for="uname">User Name</label>
+                    <br>
+                    <input type="text" id="uname" placeholder="Enter User Name">
+                    <br>
+                    <label for="password">Password</label>
+                    <br>
+                    <input type="password" id="password" placeholder="Enter Password">
+                    <br>
+                    <label for="email">Enter Email</label>
+                    <br>
+                    <input type="email" id="email" placeholder="Enter Email">
+                    <br>
+                    <label for="phone">Enter Phone Number</label>
+                    <br>
+                    <input type="text" id="phone" pattern="[6789][0-9]{9}" placeholder="Enter Phone Number">
+                    <br>
+                    <label for="Pan">Enter Pan Details</label>
+                    <br>
+                    <input type="text" id="pan" placeholder="Enter PAN NUMBER">
+                    <br>
+                    <input type="checkbox">
+                    <p style="font-size: small;display:inline-block;">I have read all policies carefully, I hereby Undertake to create my account at COINBUY.</p>
+                    <br>
+                    <button onclick="output() ">Submit</button>
+                </form>
+
+            </th>
+        </tr>
+
+    </table>
+    <script src="index.js"></script>
+</body>
+
+</html>

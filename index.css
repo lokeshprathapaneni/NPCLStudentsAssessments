@@ -1,0 +1,31 @@
+table {
+    border: 2px black;
+    border-style: double;
+    border-radius: 2rem;
+    padding: 2rem;
+    background-color: antiquewhite;
+    text-align: center;
+    margin-left: 150px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+form {
+    border: 2px double;
+    text-align: left;
+    padding: 1rem;
+    border-radius: 2rem;
+}
+
+button:hover {
+    background-color: orange;
+}
+
+img {
+    height: 300px;
+    width: 300px;
+    border: 2px solid goldenrod;
+    border-style: dashed;
+    border-radius: 100rem;
+    margin: 20px;
+}
