@@ -1,60 +1,62 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NPCI Webpage</title>
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NPCI Webpage</title>
+  <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
 
-<div class="table">
-    <h1 class="heading">NATIONAL PAYMENTS CORPORATION OF INDIA </h1>
+  <div class="table">
+    <h1 class="heading">NATIONAL PAYMENTS CORPORATION OF INDIA</h1>
 
-      <div class="container"> 
-        <div class="NPCI">
-           <img src="img.jpg" alt="NPCI" style="width:80%">
-             <h3><b>SHUWETHA RAMESH</b></h4>
-             <h3><b>shuwetharameshg@gmail.com</b></h4>
-             <h3><b>915XXXXXXX</b></h4>
-        </div>
-   
-    <div class="userForm">
-       <h4>USER REGISTERATION</h4>
-          <form action="/action_page.php">
-                  <label for="fname">First Name</label>
-                  <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    <div class="container">
+      <div class="NPCI">
+        <img src="img.jpg" alt="NPCI" style="width:80%">
+        <h3><b>SHUWETHA RAMESH</b></h3>
+        <h3><b>shuwetharameshg@gmail.com</b></h3>
+        <h3><b>915XXXXXXX</b></h3>
+      </div>
 
-                  <label for="lname">Last Name</label>
-                  <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      <div class="userForm">
+        <h4>USER REGISTERATION</h4>
+        <form>
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="fname" placeholder="Your name.." required>
 
-                 <label for="PhoneNo">Phone Number</label>
-                 <input type="text" pattern="[789][0-9]{9}" placeholder="Your Phone no..">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lname" placeholder="Your last name.." required>
 
-    
-                 <label for="fname">Email</label>
-                 <input type="text" id="Email" name="email" placeholder="user@example.com" >
+          <label for="phoneno">Phone Number</label>
+          <input type="text" id="phoneno" name="phoneno" pattern="[789][0-9]{9}" placeholder="Your Phone no.." required>
 
-                 <label for="country">Country</label>
-                 <select id="country" name="country">
-                       <option value="australia">Australia</option>
-                       <option value="canada">Canada</option>
-                       <option value="usa">USA</option>
-                       <option value="australia">INDIA</option>
-                       <option value="canada">AFRICA</option>
-                       <option value="usa">PAKISTAN</option>
-                       <option value="australia">ENGLAND</option>
-                       <option value="canada">ITALY</option>
-                       <option value="usa">THAILAND</option>
-                 </select>
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" placeholder="user@example.com" required><br><br>
 
-                <input type="submit" value="Submit">
-          </form>
+          <label for="country">Country</label>
+          <select id="country" name="country">
+            <option value="canada">CANADA</option>
+            <option value="usa">USA</option>
+            <option value="australia">INDIA</option>
+            <option value="canada">AFRICA</option>
+            <option value="usa">PAKISTAN</option>
+            <option value="australia">ENGLAND</option>
+            <option value="canada">ITALY</option>
+            <option value="usa">THAILAND</option>
+            <option value="china">CHINA</option>
+          </select>
+
+          <button onclick="outputData()">Submit</button><br><br>
+        </form>
+      </div>
     </div>
-</div>
-</div>
-
+  </div>
+  <script src="index.js"></script>
 </body>
+
 </html>
