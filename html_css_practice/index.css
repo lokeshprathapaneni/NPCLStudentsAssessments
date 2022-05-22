@@ -1,0 +1,71 @@
+body {
+    background-image: url(registration.jpg) ;
+}
+
+h1{
+    
+    padding: 10px;
+    margin: 7px;
+    color:black;
+    background-color:beige;
+    border-radius:1rem;
+}
+
+h3{
+    text-align: center;
+}
+
+.textbox{
+    border-radius: 1rem;
+}
+
+.button_stys{
+    border-radius: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-flow: row;
+    border-radius: 1px;
+    left: 10%;
+    padding: 5px;
+    margin-top:55px ;
+}
+
+.user_form_data{
+    font-size: large;
+    width: 50%;
+    background-color:violet;
+    padding: 20px;
+    margin-left: 15%;
+    margin-right: 10%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    border-style: double;
+    border-radius: 2rem;
+}
+.user_details{
+    display: flex;
+    width: 50%;
+    flex-flow: row;
+    background-color: #8d8741;
+    padding: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    border-style: double;
+    border-radius: 2rem;
+}
+
+.user_info{
+    padding: auto;
+    margin-left: 10px;
+    margin-top: 10px;
+
+}
+
+img{
+    margin-top: 50px;
+    margin: 10px
+}
