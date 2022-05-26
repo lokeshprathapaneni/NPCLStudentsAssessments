@@ -1,17 +1,18 @@
-package org.ekartapp.springcore.prac.exception;
+package org.usermanagementapp.springcore.prac.userexception;
 
-public class PasswordException extends RuntimeException{
-	
+public class AgeException extends RuntimeException {
 	private String message;
 
-	public PasswordException(String message) {
+	public AgeException(String message) {
 		super();
 		this.message = message;
 	}
+	
 
-	public PasswordException() {
+	public AgeException() {
 		super();
 	}
+
 
 	public String getMessage() {
 		return message;
@@ -21,10 +22,12 @@ public class PasswordException extends RuntimeException{
 		this.message = message;
 	}
 
+
 	@Override
 	public String toString() {
-		return "PasswordException [message=" + message + "]";
+		return "AgeException [message=" + message + "]";
 	}
+	
 	
 	
 	

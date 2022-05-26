@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.0</version>
+		<version>2.6.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>org.ekartapp.spring.prac</groupId>
-	<artifactId>EkartApp</artifactId>
+	<groupId>org.usermanagementapp.spring.prac</groupId>
+	<artifactId>UserManagementApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>EkartApp</name>
-	<description>EkartApp project for Spring Boot</description>
+	<name>UserManagementApp</name>
+	<description>UserManagementApp project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -26,11 +26,7 @@
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-data-jpa</artifactId>
      </dependency>
-		
-		<dependency>
-			<groupId>org.springframework.kafka</groupId>
-			<artifactId>spring-kafka</artifactId>
-		</dependency>
+     
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -43,7 +39,7 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<dependency>
+	<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -66,14 +62,18 @@
     <artifactId>springfox-swagger-ui</artifactId>
     <version>3.0.0</version>
 </dependency>
+
+
 		
 		<dependency>
-			<groupId>org.springframework.kafka</groupId>
-			<artifactId>spring-kafka-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+    <groupId>org.sonarsource.scanner.maven</groupId>
+    <artifactId>sonar-maven-plugin</artifactId>
+    <version>3.9.1.2184</version>
+</dependency>
+
+
 	
+	</dependencies>
 	<profiles>
 <profile>
 <id>sonar</id>
@@ -82,7 +82,7 @@
 </activation>
 <properties>
 <sonar.host.url>http://localhost:9000</sonar.host.url>
-<sonar.login>b5b44cf56aad8e01d18e1754e315e9ab6484514a</sonar.login>
+<sonar.login>622694d9c225b5972882b643d3b72070e5e55fa3</sonar.login>
 </properties>
 </profile>
 </profiles>

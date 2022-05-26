@@ -1,10 +1,10 @@
-package org.ekartapp.springcore.prac;
+package org.usermanagementapp.springcore.prac;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EkartAppApplicationTests {
+class UserManagementAppApplicationTests {
 
 	@Test
 	void contextLoads() {

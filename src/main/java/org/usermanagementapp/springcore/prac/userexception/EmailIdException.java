@@ -1,4 +1,4 @@
-package org.ekartapp.springcore.prac.exception;
+package org.usermanagementapp.springcore.prac.userexception;
 
 public class EmailIdException extends RuntimeException {
 	
